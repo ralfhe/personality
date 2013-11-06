@@ -20,6 +20,7 @@ This tool is a nice application which lets you do the following tasks:
 The documentation is growing. Everything that is written down up to now can be found under `app\Resources\doc` or from the list bellow.
 
 * [Use cases](https://github.com/ralfhe/personality/blob/master/app/Resources/doc/usecases.md)
-* Systemdesign
+* [System design](https://github.com/ralfhe/personality/blob/master/app/Resources/doc/systemdesign.md)
+* [Open questions](https://github.com/ralfhe/personality/blob/master/app/Resources/doc/openquestions.md)
 * How to use the application
 * How to write a new test
