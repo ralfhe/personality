@@ -61,8 +61,9 @@ Anwendungsfälle
 1. Der Administrator wählt die Operation Benutzer löschen (gekennzeichnet durch einen Mülleiemer) aus
 1. Der Administrator bestätigt in der Abfrage, dass er den Benutzer tatsächlich löschen möchte oder bricht die Aktion ab. In beiden Fällen gelangt er wieder zur Übersichtsseite
 
-***
 ### Gruppen
+
+Fraglich ob das so benötigt wird oder ob Gruppe == Survey.
 
 **AF-A-5: Gruppe anlegen**
 
@@ -88,11 +89,42 @@ Alle hinzugefügten Studenten, werden gelistet.
 1. Der Administrator hat die Option sämtliche Studenten der Gruppe ebenfalls zu löschen, sofern diese nicht auch anderen Gruppen zugeordnet sind
 1. Der Administrator kann den Löschvorgang bestätigen oder abbrechen und gelangt anschließend zur Übersicht zurück
 
-***
 ### Tests
 
-***
+**AF-A-T-1: Test installieren**
+
+**AF-A-T-2: Test aktivieren**
+
+**AF-A-T-3: Test deaktivieren**
+
+**AF-A-T-4: Test editieren**
+
 ### Durchführungen
+
+Als Gruppenersatz?
+
+**AF-A-D-1: Durchführung erstellen**
+
+**AF-A-D-2: Durchführung editieren**
+
+**AF-A-D-3: Durchführung löschen**
+
+**AF-A-D-4: Durchführung starten**
+
+**AF-A-D-5: Durchführung stoppen**
 
 ***
 ### Einstellungen
+
+**AF-A-E-1: Neuen Administrator anlegen**
+
+1. Der Administrator wählt im Hauptmenü "Settings" und gelangt zur Unterseite.
+1. Dort kann er analog zu AF-A-1 einen neuen Administrator anlegen.
+
+**AF-A-E-2: Administrator editieren**
+
+Analog zu AF-A-3. Zusätzliche Möglichkeit, die genaue Rolle zu definieren. 
+
+**AF-A-E-2: Administrator löschen**
+
+Analog zu AF-A-4.
