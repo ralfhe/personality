@@ -1,0 +1,76 @@
+{% extends 'CoreBundle:Backend:base.html.twig' %}
+
+{% block title %}Admin - Dashboard{% endblock %}
+
+{% block stylesheets %}
+
+	{{ parent() }}
+
+	<style>
+<!--
+
+	.dashboard img {
+	
+		max-height: 130px;
+	
+	}
+
+-->
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container dashboard">
+
+	<h1>Admin Dashboard</h1>
+	<hr />
+	
+	<div class="row">
+		
+		<div class="col-md-3">
+		
+			<a href="#" class="btn btn-lg btn-default col-md-12">
+				<h2>Users</h2><br />
+				<img src="{{ asset('img/icon_user.png') }}" />
+				<h2>#1234</h2>
+			</a>
+		
+		</div>
+		
+		<div class="col-md-3">
+		
+			<a href="#" class="btn btn-lg btn-default col-md-12">
+				<h2>Groups</h2><br />
+				<img src="{{ asset('img/icon_group.png') }}" />
+				<h2>#34</h2>
+			</a>
+	
+		</div>
+		
+		<div class="col-md-3">
+		
+			<a href="#" class="btn btn-lg btn-default col-md-12">
+				<h2>Tests</h2><br />
+				<img src="{{ asset('img/icon_test_1.png') }}" />
+				<h2>#12</h2>
+			</a>
+	
+		</div>
+		
+		<div class="col-md-3">
+		
+			<a href="#" class="btn btn-lg btn-default col-md-12">
+				<h2>Surveys</h2><br />
+				<img src="{{ asset('img/icon_survey.png') }}" />
+				<h2>#123</h2>
+			</a>
+	
+		</div>
+	
+	</div>
+
+</div>
+
+{% endblock %}

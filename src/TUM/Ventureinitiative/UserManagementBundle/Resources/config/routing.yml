@@ -1,0 +1,27 @@
+user_management_homepage:
+    pattern:  /
+    defaults: { _controller: UserManagementBundle:Main:overview }
+    
+user_management_homepage_paging:
+    pattern:  /page/{page}
+    defaults: { _controller: UserManagementBundle:Main:overview }    
+    
+user_management_add_user:
+    pattern: /add
+    defaults: { _controller: UserManagementBundle:Main:add }
+    
+user_management_delete_user:
+    pattern: /delete/{id}
+    defaults: { _controller: UserManagementBundle:Main:deleteUser }
+
+user_management_import_users:
+    pattern: /import
+    defaults: { _controller: UserManagementBundle:Main:importUser }
+    
+user_management_search:
+    pattern: /search
+    defaults: { _controller: UserManagementBundle:Main:search }
+    
+user_management_edit_user:
+    pattern: /edit/{id}
+    defaults: { _controller: UserManagementBundle:Main:editUser }

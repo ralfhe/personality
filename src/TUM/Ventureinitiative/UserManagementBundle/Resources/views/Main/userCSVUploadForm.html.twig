@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Overview - User Management{% endblock %}
+
+{% block nav %} {{ knp_menu_render('main', {'currentClass': 'active'}) }} {% endblock %}
+
+{% block content %}
+    
+<h1>{{ headline }}</h1>
+
+<hr />
+<br />
+
+{{ form_start(userCSVUploadForm, {'attr': {'role': 'form'}}) }}
+	
+	{% if not userCSVUploadForm.vars.valid %}
+	
+		<div class="alert alert-danger">
+			{{ form_errors(userCSVUploadForm) }}
+		</div>
+	
+	{% endif %}
+	
+	<div class="row">
+		<div class="form-group col-lg-4">
+		
+			{{ form_label(userCSVUploadForm.file) }}
+			{{ form_errors(userCSVUploadForm.file) }}
+			{{ form_widget(userCSVUploadForm.file) }}
+		
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="form-group col-lg-2">
+	
+		{{ form_label(userCSVUploadForm.separator) }}
+		{{ form_errors(userCSVUploadForm.separator) }}
+		{{ form_widget(userCSVUploadForm.separator, {'attr': {'class': 'form-control'}}) }}
+	
+		</div>
+	</div>
+
+ <button type="submit" class="btn btn-primary">{{ submitButtonText }}</button>
+
+{{ form_end(userCSVUploadForm) }}
+	
+{% endblock %}

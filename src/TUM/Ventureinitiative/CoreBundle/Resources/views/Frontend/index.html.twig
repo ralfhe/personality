@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Test Page{% endblock %}
+
+{% block content %}
+  
+ {{ parent() }}
+  
+  <div style="background-color:#517fa4; background: -moz-linear-gradient(top,#517fa4,#306088); margin-top: -19px; margin-bottom: -25px; width: 100%; height: 100%;">
+  
+  	<div class="container">
+  	
+  		<div class="row">
+  	
+  		<div class="col-md-offset-1 col-md-4 visible-md visible-lg">
+  		
+  			<img src="{{ asset('img/logo_big_white.png') }}" style="height: 375px; margin-top: 38px;"/>
+  				
+  		</div>
+  	
+  	<div class="col-md-6">
+  	
+  		<div class="jumbotron" style="background: none; text-align: center; color:#fff;">
+  	
+	  		<h1>Discover your Entrepreneurial Personality!</h1>
+	  		<br />
+	  		<a class="btn btn-primary btn-lg">Start your evaluation!</a>
+  	
+  		</div>
+  		
+  		</div>
+  	</div>
+  	</div>
+  
+  </div>
+  
+  
+    <div style="background: #fff; margin-top: -19px; margin-bottom: -25px; width: 100%; height: 100%;">
+  
+  	<div class="container">
+  		
+  		<div class="row">
+  		
+  		<div class="col-md-12">
+  		
+  		<div class="jumbotron" style="background: none; text-align: center;">
+  	
+	  		<h1>Find out more!</h1>
+	  		<br />
+	  		<p>This personality test is based on the "Big Five" personality traits and covers openness, 
+	  		conscientiousness, extraversion, agreeableness, and neuroticism. It is provided free of charge 
+	  		by the Entrepreneurship Research Institute at TUM.</p>
+	  		<br />
+	  		<br />
+	  		<a class="btn btn-primary btn-lg">Start your evaluation!</a>
+  	
+  		</div>
+  		</div>
+  	
+  	</div>
+  
+  </div>
+  
+	
+{% endblock %}

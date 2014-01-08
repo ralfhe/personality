@@ -1,0 +1,9 @@
+parameters:
+    tum_ventureinitiative_student.service.class: TUM\Ventureinitiative\StudentBundle\Service\StudentService
+
+services:
+    tum_ventureinitiative_student.service:
+        class: %tum_ventureinitiative_student.service.class%
+        calls:
+            - [setContainer, [@service_container]]
+#        arguments: [@service_container]

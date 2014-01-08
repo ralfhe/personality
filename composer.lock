@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e67df720e8a1a2e0e6df41d91d788e48",
+    "hash": "2a5e3c55ff93999684cb3a4eaabbc6bb",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -78,16 +78,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "d0e4447707a064a5814b18cb0dcc2f24185f6179"
+                "reference": "e16d7adf45664a50fa86f515b6d5e7f670130449"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/d0e4447707a064a5814b18cb0dcc2f24185f6179",
-                "reference": "d0e4447707a064a5814b18cb0dcc2f24185f6179",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/e16d7adf45664a50fa86f515b6d5e7f670130449",
+                "reference": "e16d7adf45664a50fa86f515b6d5e7f670130449",
                 "shasum": ""
             },
             "require": {
@@ -95,6 +95,10 @@
             },
             "conflict": {
                 "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=3.7",
+                "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
             "extra": {
@@ -113,9 +117,10 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
+                    "homepage": "http://www.jwage.com/",
+                    "role": "Creator"
                 },
                 {
                     "name": "Guilherme Blanco",
@@ -131,7 +136,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -143,7 +148,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2013-09-26 19:23:25"
+            "time": "2013-10-25 19:04:14"
         },
         {
             "name": "doctrine/collections",
@@ -605,28 +610,38 @@
             "time": "2013-05-11 07:51:12"
         },
         {
-            "name": "incenteev/composer-parameter-handler",
-            "version": "v2.0.0",
-            "target-dir": "Incenteev/ParameterHandler",
+            "name": "friendsofsymfony/user-bundle",
+            "version": "dev-master",
+            "target-dir": "FOS/UserBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Incenteev/ParameterHandler.git",
-                "reference": "2310d74a751025f02221e0faf69d31440df71b73"
+                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
+                "reference": "eb459d55bca10b51e7d44143ca6757fd999fce62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/2310d74a751025f02221e0faf69d31440df71b73",
-                "reference": "2310d74a751025f02221e0faf69d31440df71b73",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/eb459d55bca10b51e7d44143ca6757fd999fce62",
+                "reference": "eb459d55bca10b51e7d44143ca6757fd999fce62",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "symfony/yaml": "~2.0"
+                "php": ">=5.3.2",
+                "symfony/form": "~2.1",
+                "symfony/framework-bundle": "~2.1",
+                "symfony/security-bundle": "~2.1"
             },
             "require-dev": {
-                "composer/composer": "*"
+                "doctrine/doctrine-bundle": "*",
+                "swiftmailer/swiftmailer": ">=4.3, <6.0",
+                "symfony/validator": "~2.1",
+                "symfony/yaml": "~2.1",
+                "twig/twig": "~1.5",
+                "willdurand/propel-typehintable-behavior": "dev-master"
             },
-            "type": "library",
+            "suggest": {
+                "willdurand/propel-typehintable-behavior": "Needed when using the propel implementation"
+            },
+            "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.0.x-dev"
@@ -634,7 +649,7 @@
             },
             "autoload": {
                 "psr-0": {
-                    "Incenteev\\ParameterHandler": ""
+                    "FOS\\UserBundle": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -645,27 +660,36 @@
                 {
                     "name": "Christophe Coevoet",
                     "email": "stof@notk.org"
+                },
+                {
+                    "name": "Thibault Duplessis",
+                    "email": "thibault.duplessis@gmail.com",
+                    "homepage": "http://ornicar.github.com"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSUserBundle/contributors"
                 }
             ],
-            "description": "Composer script handling your ignored parameter file",
-            "homepage": "https://github.com/Incenteev/ParameterHandler",
+            "description": "Symfony FOSUserBundle",
+            "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
-                "parameters management"
+                "User management"
             ],
-            "time": "2013-04-06 17:15:44"
+            "time": "2013-11-25 12:39:19"
         },
         {
             "name": "jdorn/sql-formatter",
-            "version": "v1.2.9",
+            "version": "v1.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jdorn/sql-formatter.git",
-                "reference": "bd1f09133f6dbbe0713856910e58ea9480c2be58"
+                "reference": "8859d664737492d313c34796731b35eca851b362"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/bd1f09133f6dbbe0713856910e58ea9480c2be58",
-                "reference": "bd1f09133f6dbbe0713856910e58ea9480c2be58",
+                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/8859d664737492d313c34796731b35eca851b362",
+                "reference": "8859d664737492d313c34796731b35eca851b362",
                 "shasum": ""
             },
             "require": {
@@ -702,7 +726,232 @@
                 "highlight",
                 "sql"
             ],
-            "time": "2013-04-26 18:42:52"
+            "time": "2013-11-27 22:51:13"
+        },
+        {
+            "name": "jmikola/auto-login",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jmikola/AutoLogin.git",
+                "reference": "e60abda9864bcabc0475e5e669c12a47aeed62a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jmikola/AutoLogin/zipball/e60abda9864bcabc0475e5e669c12a47aeed62a8",
+                "reference": "e60abda9864bcabc0475e5e669c12a47aeed62a8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/http-kernel": "~2.1",
+                "symfony/security": "~2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Jmikola\\AutoLogin": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Henrik Bjornskov",
+                    "email": "henrik@bjrnskov.dk",
+                    "homepage": "http://henrik.bjrnskov.dk"
+                },
+                {
+                    "name": "Jeremy Mikola",
+                    "email": "jmikola@gmail.com",
+                    "homepage": "http://jmikola.net"
+                }
+            ],
+            "description": "Faciliates automatic login via a single token for Symfony2's Security component.",
+            "homepage": "https://github.com/jmikola/AutoLogin",
+            "keywords": [
+                "Authentication",
+                "auto-login",
+                "login",
+                "security"
+            ],
+            "time": "2013-07-17 14:56:43"
+        },
+        {
+            "name": "jmikola/auto-login-bundle",
+            "version": "v1.0.3",
+            "target-dir": "Jmikola/AutoLoginBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jmikola/JmikolaAutoLoginBundle.git",
+                "reference": "fec6c37d0e2a13928d06099f64b79bcdc6141253"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jmikola/JmikolaAutoLoginBundle/zipball/fec6c37d0e2a13928d06099f64b79bcdc6141253",
+                "reference": "fec6c37d0e2a13928d06099f64b79bcdc6141253",
+                "shasum": ""
+            },
+            "require": {
+                "jmikola/auto-login": "~1.0",
+                "php": ">=5.3.2",
+                "symfony/config": "~2.1",
+                "symfony/dependency-injection": "~2.1",
+                "symfony/http-kernel": "~2.1",
+                "symfony/security-bundle": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Jmikola\\AutoLoginBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Mikola",
+                    "email": "jmikola@gmail.com",
+                    "homepage": "http://jmikola.net"
+                }
+            ],
+            "description": "Authenticate users in your Symfony2 app via a single query parameter (e.g. email and newsletter links).",
+            "homepage": "https://github.com/jmikola/JmikolaAutoLoginBundle",
+            "keywords": [
+                "Authentication",
+                "auto-login",
+                "login",
+                "security"
+            ],
+            "time": "2013-07-17 15:14:01"
+        },
+        {
+            "name": "knplabs/knp-menu",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpMenu.git",
+                "reference": "52c8ffd7eba8028f93ef9eece98f74b2f11c1c1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/52c8ffd7eba8028f93ef9eece98f74b2f11c1c1f",
+                "reference": "52c8ffd7eba8028f93ef9eece98f74b2f11c1c1f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "pimple/pimple": "1.0.*",
+                "silex/silex": "1.0.*",
+                "twig/twig": ">=1.2,<2.0-dev"
+            },
+            "suggest": {
+                "pimple/pimple": "for the built-in implementations of the menu provider and renderer provider",
+                "silex/silex": "for the integration with your silex application",
+                "twig/twig": "for the TwigRenderer and the integration with your templates"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Menu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "KnpLabs",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/KnpLabs/KnpMenu/contributors"
+                }
+            ],
+            "description": "An object oriented menu library",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "menu",
+                "tree"
+            ],
+            "time": "2013-09-16 09:46:19"
+        },
+        {
+            "name": "knplabs/knp-menu-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/MenuBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
+                "reference": "1b07578738d3425c09cfbd153276382388994f46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/1b07578738d3425c09cfbd153276382388994f46",
+                "reference": "1b07578738d3425c09cfbd153276382388994f46",
+                "shasum": ""
+            },
+            "require": {
+                "knplabs/knp-menu": "~2.0, >=2.0.0-beta1",
+                "symfony/framework-bundle": "~2.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\MenuBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "Knplabs",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/KnpLabs/KnpMenuBundle/contributors"
+                }
+            ],
+            "description": "This bundle provides an integration of the KnpMenu library",
+            "keywords": [
+                "menu"
+            ],
+            "time": "2013-07-08 09:55:38"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -777,16 +1026,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd"
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f72392d0e6eb855118f5a84e89ac2d257c704abd",
-                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6225b22de9dcf36546be3a0b2fa8e3d986153f57",
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57",
                 "shasum": ""
             },
             "require": {
@@ -794,21 +1043,26 @@
                 "psr/log": "~1.0"
             },
             "require-dev": {
+                "aws/aws-sdk-php": "~2.4.8",
                 "doctrine/couchdb": "dev-master",
                 "mlehner/gelf-php": "1.0.*",
-                "raven/raven": "0.5.*"
+                "phpunit/phpunit": "~3.7.0",
+                "raven/raven": "0.5.*",
+                "ruflin/elastica": "0.90.*"
             },
             "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "raven/raven": "Allow sending log messages to a Sentry server"
+                "raven/raven": "Allow sending log messages to a Sentry server",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6.x-dev"
+                    "dev-master": "1.7.x-dev"
                 }
             },
             "autoload": {
@@ -835,7 +1089,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-07-28 22:38:30"
+            "time": "2013-11-14 19:48:31"
         },
         {
             "name": "psr/log",
@@ -1290,16 +1544,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.6",
+            "version": "v2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "d0597156c4c03ceca039f6b7770a47397ba295f0"
+                "reference": "2829b471871c2564228fe9f0832a0f928a8ffaa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d0597156c4c03ceca039f6b7770a47397ba295f0",
-                "reference": "d0597156c4c03ceca039f6b7770a47397ba295f0",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/2829b471871c2564228fe9f0832a0f928a8ffaa1",
+                "reference": "2829b471871c2564228fe9f0832a0f928a8ffaa1",
                 "shasum": ""
             },
             "require": {
@@ -1394,24 +1648,24 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-10 13:24:22"
+            "time": "2013-11-14 07:58:51"
         },
         {
             "name": "twig/extensions",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig-extensions.git",
-                "reference": "921799aaf05f88af749d72912d6b154dfeb9a03e"
+                "reference": "f91a82ec225e5bb108e01a0f93c9be04f84dcfa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/921799aaf05f88af749d72912d6b154dfeb9a03e",
-                "reference": "921799aaf05f88af749d72912d6b154dfeb9a03e",
+                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/f91a82ec225e5bb108e01a0f93c9be04f84dcfa0",
+                "reference": "f91a82ec225e5bb108e01a0f93c9be04f84dcfa0",
                 "shasum": ""
             },
             "require": {
-                "twig/twig": "1.*"
+                "twig/twig": "~1.0"
             },
             "type": "library",
             "extra": {
@@ -1441,20 +1695,20 @@
                 "i18n",
                 "text"
             ],
-            "time": "2013-02-28 14:21:30"
+            "time": "2013-10-18 19:37:15"
         },
         {
             "name": "twig/twig",
-            "version": "v1.14.1",
+            "version": "v1.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "8873d7593ad7c120004f177c0fd01459b383c9cb"
+                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8873d7593ad7c120004f177c0fd01459b383c9cb",
-                "reference": "8873d7593ad7c120004f177c0fd01459b383c9cb",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/ca445842fcea4f844d68203ffa2d00f5e3cdea64",
+                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64",
                 "shasum": ""
             },
             "require": {
@@ -1490,7 +1744,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-15 19:17:38"
+            "time": "2013-10-30 08:20:53"
         }
     ],
     "packages-dev": [
@@ -1500,9 +1754,11 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "friendsofsymfony/user-bundle": 20,
+        "knplabs/knp-menu-bundle": 20,
+        "knplabs/knp-menu": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },

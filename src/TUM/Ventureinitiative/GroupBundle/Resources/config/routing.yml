@@ -1,0 +1,51 @@
+################
+### Group Routes
+################
+
+tum_ventureinitiative_group_index:
+    pattern:  /
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Group:index }
+    
+tum_ventureinitiative_group_settings:
+    pattern:  /settings/{groupId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Group:settings }
+
+tum_ventureinitiative_group_new:
+    pattern:  /new/
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Group:new }
+
+tum_ventureinitiative_group_edit:
+    pattern:  /edit/{groupId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Group:edit }
+    
+tum_ventureinitiative_group_delete:
+    pattern:  /delete/{groupId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Group:delete }
+    
+tum_ventureinitiative_group_start:
+    pattern:  /start/{groupId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Group:start }
+    
+tum_ventureinitiative_group_stop:
+    pattern:  /stop/{groupId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Group:stop }
+
+################    
+### Participant Routes 
+################    
+    
+tum_ventureinitiative_participant_add:
+    pattern:  /participant/add/{groupId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Participant:add }
+    
+tum_ventureinitiative_participant_edit:
+    pattern:  /participant/edit/{participantId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Participant:edit }
+    
+tum_ventureinitiative_participant_delete:
+    pattern:  /participant/delete/{participantId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Participant:delete }
+    
+tum_ventureinitiative_participant_mail:
+    pattern: /participant/mail/{participantId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Participant:mail }

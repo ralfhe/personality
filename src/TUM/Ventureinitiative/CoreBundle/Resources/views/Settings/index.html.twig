@@ -1,0 +1,133 @@
+{% extends 'CoreBundle:Backend:base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-12">
+	
+			<h1>Settings</h1>
+			<hr />
+		
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			
+			<p>Add new users <a href="{{ path('core_backend_settings_add_user') }}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span></a></p>
+			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+	
+			<table class="table table-hover">
+	
+				<thead>
+					
+					<tr>
+						<th>Id</th>
+						<th>Username</th>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>E-Mail</th>
+						<th>Options</th>
+					</tr>
+			
+				</thead>
+			
+				<tbody>
+					
+					{% for user in users %}	
+					
+					<tr>
+						<td>{{ user.id }}</td>
+						<td>{{ user.username }}</td>
+						<td>{{ user.firstname }}</td>
+						<td>{{ user.lastname }}</td>
+						<td>{{ user.email }}</td>
+						<td>
+							<a href="#" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+								<a href="#deleteUserModal" class="btn btn-default btn-sm" data-toggle="modal" data-confirm-url="#" data-user-info="{{ user.username }}  ({{ user.email }})">
+									<span class="glyphicon glyphicon-trash"></span>
+								</a>
+							<!-- </a> -->
+						</td>
+					</tr>
+			
+					{% endfor %}
+			
+				</tbody>
+				
+			</table>
+	
+		</div>
+	</div>
+</div>
+
+<!-- ### Modal ### -->
+
+<div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Delete User</h4>
+			</div>
+			<div class="modal-body">
+				Are you sure you want to delete the following user: <span id="modalUserInfo"></span>
+			</div>
+			<div class="modal-footer">
+				<a class="btn btn-default" data-dismiss="modal">Abort</a>
+				<a class="btn btn-danger">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+	
+	{{ parent() }}
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			$('#deleteUserModal').on('show.bs.modal', function() {
+
+				var $this = $(this),
+					id = $this.attr('id'),
+					filter = '[href="#' + id + '"],[data-target="#' + id  + '"]',
+		            trigger = $('[data-toggle="modal"]').filter(filter),
+		            confirmUrl = trigger.data('confirmUrl');
+
+				var $this = $(this),
+					id = $this.attr('id'),
+					filter = '[href="#' + id + '"],[data-target="#' + id  + '"]',
+		            trigger = $('[data-toggle="modal"]').filter(filter),
+		            userInfo = trigger.data('userInfo');
+
+				if(confirmUrl !== undefined) {
+		            $this.find('.btn-danger')
+		                .attr('href', confirmUrl)
+		                .click(function() { $this.modal('hide'); });
+
+	                $this.find('#modalUserInfo').html('<br /><br /><b>' + userInfo + '</b>');
+		        }
+				
+			});
+				
+		});
+	
+	</script>
+
+{% endblock %}

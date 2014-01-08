@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Overview - User Management{% endblock %}
+
+{% block nav %} {{ knp_menu_render('main', {'currentClass': 'active'}) }} {% endblock %}
+
+{% block content %}
+    
+<h2>Students - {{ headline }}</h2>
+
+<br />
+
+{{ form_start(userForm) }}
+	
+	{% if not userForm.vars.valid %}
+	<div class="alert alert-danger">
+		{{ form_errors(userForm) }}
+	</div>
+	{% endif %}
+		
+	<div class="form-group">
+	
+		{{ form_label(userForm.firstname) }}
+		{{ form_errors(userForm.firstname) }}
+		{{ form_widget(userForm.firstname, {'attr': {'class': 'form-control'}}) }}
+	
+	</div>
+	
+	<div class="form-group">
+	
+		{{ form_label(userForm.lastname) }}
+		{{ form_errors(userForm.lastname) }}
+		{{ form_widget(userForm.lastname, {'attr': {'class': 'form-control'}}) }}
+	
+	</div>
+	
+	<div class="form-group">
+	
+		{{ form_label(userForm.email) }}
+		{{ form_errors(userForm.email) }}
+		{{ form_widget(userForm.email, {'attr': {'class': 'form-control'}}) }}
+	
+	</div>
+
+ <button type="submit" class="btn btn-primary">{{ submitButtonText }}</button>
+
+{{ form_end(userForm) }}
+	
+{% endblock %}

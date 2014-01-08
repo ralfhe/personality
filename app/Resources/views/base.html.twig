@@ -1,13 +1,143 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+  <head>
+
+    {% block meta %}
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+    {% endblock %}
+
+
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+
+    <title>
+
+        {% block title %}{% endblock %} - Ventureinitiative
+
+    </title>
+
+    {% block stylesheets %}
+
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+        
+		 <style>
+			<!--
+			
+			body, body.modal, .modal-open, .modal-open .navbar-fixed-top {
+			    margin-right: 0 !important;
+			}
+			
+			body.modal, .modal-open, .modal-open .navbar-fixed-top {
+			    overflow-y: hidden;
+			}
+			
+			-->
+		</style>
+
+
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    {% block body %}
+
+      <div class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('frontend_index') }}"><span style="color: #306088;">Venture</span><span style="color: #23262b;">initiative</span></a>
+          </div>
+          <div class="collapse navbar-collapse">
+
+            {% block navigation %}
+            
+            {% endblock %}
+            
+            {% if app.user %}
+
+			<p class="navbar-text pull-right">
+		            Logged in as {{ app.user.username }} | <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+			</p>
+			
+			{% else %}
+			
+				<p class="navbar-text pull-right">
+			            <a href="{{ path('backend_index') }}">Login</a>
+				</p>
+			
+			{% endif %}
+
+          </div><!-- /.nav-collapse -->
+        </div><!-- /.container -->
+      </div><!-- /.navbar -->
+
+      {% block content %}
+
+      {% endblock %}
+
+      <footer>
+
+        {% block footer %}
+
+            <center>
+
+              <img src="{{ asset('img/wiwi_logo_white.png') }}" style="height: 50px; margin: 75px 20px;" />
+              &nbsp;
+              <img src="{{ asset('img/tum_logo_white.png') }}" style="height: 50px; margin: 75px 20px;" />
+
+            </center>
+
+        {% endblock %}
+
+    </footer>
+
+    {% endblock %}
+
+    {% block javascript %}
+
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        
+        <script type="text/javascript">
+		  <!--
+		  
+		  $(document).ready(function() {
+
+			var pushFooterToBottom = function() {
+				   
+			   var docHeight = $(window).height();
+			   var footerHeight = $('footer').height();
+			   var footerTop = $('footer').position().top + footerHeight;
+			   
+			   if (footerTop < docHeight) {
+			    $('footer').css('margin-top', (docHeight - footerTop) + 'px');
+			   }
+			}
+
+			pushFooterToBottom();
+
+			$(window).resize(pushFooterToBottom);
+			
+		  });
+		  
+		  // -->
+		 </script>
+
+    {% endblock %}
+
+  </body>
 </html>

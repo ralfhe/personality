@@ -1,0 +1,8 @@
+tum_ventureinitiative_test_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:Default:index }
+
+tum_ventureinitiative_test_overview:
+    pattern:  /test/{test}/participant/{auth_token}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:Default:test }
+    

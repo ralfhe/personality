@@ -1,0 +1,24 @@
+services:
+    tum_ventureinitiative_core.menu_builder:
+        class: TUM\Ventureinitiative\CoreBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+
+    tum_ventureinitiative_core.menu.main:
+        class: Knp\Menu\MenuItem
+        factory_service: tum_ventureinitiative_core.menu_builder
+        factory_method: createMainMenu
+        arguments: ["@request", [["Home","core_homepage"],["User", "user_management_homepage"]]]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: main }
+
+    tum_ventureinitiative_core.menu_service:
+        class: TUM\Ventureinitiative\CoreBundle\Services\MenuService
+        tags: 
+            - { name: tum_ventureinitiative_core.main_menu }
+
+    tum_ventureinitiative.user.registration.form.type:
+        class: TUM\Ventureinitiative\CoreBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: core_user_registration }

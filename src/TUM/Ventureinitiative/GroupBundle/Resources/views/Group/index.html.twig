@@ -1,0 +1,72 @@
+{% extends 'CoreBundle:Backend:base.html.twig' %}
+
+{% block content %}
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-11">
+			<h1>Group Evaluations - Overview</h1>
+		</div>
+		<div class="col-md-1">
+			<a href="{{ path('tum_ventureinitiative_group_new') }}" style="margin-top: 15px;" class="btn btn-primary btn-lg">
+				<span class="glyphicon glyphicon-plus"></span>
+			</a>
+		</div>
+	</div>
+		
+<hr />
+<br />
+
+
+<table class="table table-hover" style="table-layout: fixed;">
+
+	<thead>
+		
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Members</th>
+			<th>Status</th>
+			<th>Options</th>
+		</tr>
+
+	</thead>
+
+	<tbody>
+		
+		{% for group in groups %}
+		<tr>
+			<td>{{ group.id }} </td>
+			<td>{{ group.name }} </td>
+			<td>23 </td>
+			<td>
+				{%  if (group.status == 0) %}
+					
+					<span style="margin: 0px; padding: 10px;" class="alert alert-info glyphicon glyphicon-certificate"></span>
+				 
+				{% elseif (group.status == 1) %}
+				
+					<span style="margin: 0px; padding: 10px;" class="alert alert-success glyphicon glyphicon-play"></span>
+					
+				{% elseif (group.status == 2) %}
+			
+				<span style="margin: 0px; padding: 10px;" class="alert alert-danger glyphicon glyphicon-stop"></span>
+					 
+				{% endif %}
+			</td>
+			<td>
+				<a href="{{ path('tum_ventureinitiative_group_settings', {'groupId': group.id}) }}" class="btn btn-default">
+					<span class="glyphicon glyphicon-cog"></span>
+				</a>
+			</td>
+			</tr>
+		{% endfor %}
+
+	</tbody>
+	
+</table>
+
+</div>
+	
+{% endblock %}

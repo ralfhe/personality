@@ -1,0 +1,56 @@
+{% extends 'CoreBundle:Backend:base.html.twig' %}
+
+{% block title %}Group Evaluation - {{ headline }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    
+	<h1>Group Evaluation - {{ headline }}</h1>
+	<hr />
+	
+	<br />
+
+	{{ form_start(groupForm) }}
+		
+		{% if not groupForm.vars.valid %}
+			<div class="alert alert-danger">
+				{{ form_errors(groupForm) }}
+			</div>
+		{% endif %}
+		
+		<div class="form-group">
+		
+			{{ form_label(groupForm.name) }}
+			{{ form_errors(groupForm.name) }}
+			{{ form_widget(groupForm.name, {'attr': {'class': 'form-control'}}) }}
+		
+		</div>
+		
+		<div class="form-group">
+		
+			{{ form_label(groupForm.description) }}
+			{{ form_errors(groupForm.description) }}
+			{{ form_widget(groupForm.description, {'attr': {'class': 'form-control'}}) }}
+		
+		</div>
+		
+		<div class="form-group">
+		
+			{{ form_label(groupForm.test) }}
+			{{ form_errors(groupForm.test) }}
+			{{ form_widget(groupForm.test, {'attr': {'class': 'form-control'}}) }}
+		
+		</div>
+	
+			{{ form_widget(groupForm.createAndFinish, {'attr': {'class': 'btn btn-primary'}}) }}
+			
+			{{ form_widget(groupForm.createAndAddUsers, {'attr': {'class': 'btn btn-primary'}}) }}
+	
+
+
+	{{ form_end(groupForm) }}
+
+</div>
+	
+{% endblock %}

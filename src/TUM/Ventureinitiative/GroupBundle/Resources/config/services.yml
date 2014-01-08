@@ -1,0 +1,6 @@
+parameters:
+#    tum_ventureinitiative_participant.token_user_provider.class: TUM\Ventureinitiative\GroupBundle\Security\TokenUserProvider
+
+services:
+#    tum_ventureinitiative_participant.token_user_provider:
+#        class: %tum_ventureinitiative_group.example.class%

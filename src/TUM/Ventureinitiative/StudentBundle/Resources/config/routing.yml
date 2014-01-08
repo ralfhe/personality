@@ -1,0 +1,27 @@
+tum_ventureinitiative_student_overview:
+    pattern:  /
+    defaults: { _controller: TUMVentureinitiativeStudentBundle:Default:overview }
+    
+tum_ventureinitiative_student_paged_overview:
+    pattern:  /page/{page}
+    defaults: { _controller: TUMVentureinitiativeStudentBundle:Default:overview }    
+    
+tum_ventureinitiative_student_add:
+    pattern: /add
+    defaults: { _controller: TUMVentureinitiativeStudentBundle:Default:add }
+    
+tum_ventureinitiative_student_edit:
+    pattern: /edit/{id}
+    defaults: { _controller: TUMVentureinitiativeStudentBundle:Default:edit }
+    
+tum_ventureinitiative_student_delete:
+    pattern: /delete/{id}
+    defaults: { _controller: TUMVentureinitiativeStudentBundle:Default:delete }
+    
+tum_ventureinitiative_student_search:
+    pattern: /search
+    defaults: { _controller: TUMVentureinitiativeStudentBundle:Default:search }
+    
+tum_ventureinitiative_student_paged_search:
+    pattern: /search/page/{page}
+    defaults: { _controller: TUMVentureinitiativeStudentBundle:Default:search }

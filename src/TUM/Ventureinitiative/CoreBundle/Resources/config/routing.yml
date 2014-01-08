@@ -1,0 +1,49 @@
+### Frontend Routes
+
+frontend_index:
+    pattern:  /
+    defaults: { _controller: CoreBundle:Frontend:index }
+
+### Backend Routes
+
+backend_index:
+    pattern: /admin/
+    defaults: { _controller: CoreBundle:Backend:index }
+
+### Settings Routes
+
+core_backend_settings_index: 
+    pattern: /admin/settings/
+    defaults: { _controller: CoreBundle:Settings:index }
+    
+core_backend_settings_add_user: 
+    pattern: /admin/settings/addUser
+    defaults: { _controller: CoreBundle:Settings:addUser }
+
+core_backend_settings_delete_user:
+    pattern: /admin/settings/deleteUser
+    defaults: { _controller: CoreBundle:Settings:deleteUser }
+    
+core_backend_settings_edit_user:
+    pattern: /admin/settings/editUser
+    defaults: { _controller: CoreBundle:Settings:editUser }
+
+core_backend_settings_deactivate_user:
+    pattern: /admin/settings/deactivateUser
+    defaults: { _controller: CoreBundle:Settings:deactivateUser }
+    
+core_backend_settings_activate_user:
+    pattern: /admin/settings/activateUser
+    defaults: { _controller: CoreBundle:Settings:activateUser }
+
+### Security Routes
+    
+#core_login:
+#    pattern: /login
+#    defaults: { _controller: CoreBundle:Security:login }
+
+#core_login_check:
+#    pattern: /admin/login_check
+    
+#core_logout:
+#    pattern: /admin/logout

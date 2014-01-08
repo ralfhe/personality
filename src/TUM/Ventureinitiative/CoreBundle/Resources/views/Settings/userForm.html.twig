@@ -1,0 +1,69 @@
+{% extends 'CoreBundle:Backend:base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-12">
+	
+			<h1>{{ headline }}</h1>
+			<hr />
+		
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+	
+			{{ form_start(userForm) }}
+	
+				{% if not userForm.vars.valid %}
+				<div class="alert alert-danger">
+					{{ form_errors(userForm) }}
+				</div>
+				{% endif %}
+				
+				<div class="form-group">
+				
+					{{ form_label(userForm.username) }}
+					{{ form_errors(userForm.username) }}
+					{{ form_widget(userForm.username, {'attr': {'class': 'form-control'}}) }}
+				
+				</div>
+					
+				<div class="form-group">
+				
+					{{ form_label(userForm.firstname) }}
+					{{ form_errors(userForm.firstname) }}
+					{{ form_widget(userForm.firstname, {'attr': {'class': 'form-control'}}) }}
+				
+				</div>
+				
+				<div class="form-group">
+				
+					{{ form_label(userForm.lastname) }}
+					{{ form_errors(userForm.lastname) }}
+					{{ form_widget(userForm.lastname, {'attr': {'class': 'form-control'}}) }}
+				
+				</div>
+				
+				<div class="form-group">
+				
+					{{ form_label(userForm.email) }}
+					{{ form_errors(userForm.email) }}
+					{{ form_widget(userForm.email, {'attr': {'class': 'form-control'}}) }}
+				
+				</div>
+			
+			 <button type="submit" class="btn btn-primary">{{ submitButtonText }}</button>
+			
+			{{ form_end(userForm) }}
+	
+		</div>
+	</div>
+</div>
+
+{% endblock %}

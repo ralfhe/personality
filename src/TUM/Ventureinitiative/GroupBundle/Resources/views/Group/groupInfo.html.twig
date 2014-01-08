@@ -1,0 +1,195 @@
+{% extends 'CoreBundle:Backend:base.html.twig' %}
+
+{% block title %}Group Evaluation - Group #{{ group.id }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    
+	<h1>Group Evaluation - Group #{{ group.id }}</h1>
+	
+	<hr />
+	
+	<br />
+	
+	<h3>Group Summary</h3>
+	
+	<table  class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Test</th>
+				<th>Options</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ group.id }}</td>
+				<td>{{ group.name }}</td>
+				<td>{{ group.description }}</td>
+				<td>{{ group.test.name }}</td>
+				<td>
+					{% if (group.status == 0) %}
+						<a href="{{ path('tum_ventureinitiative_group_edit', {'groupId': group.id}) }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="{{ path('tum_ventureinitiative_participant_add', {'groupId': group.id}) }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-plus"></span></a>
+						<a href="{{ path('tum_ventureinitiative_group_start', {'groupId': group.id}) }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-play"></span></a>
+						<a href="#deleteModal" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" 
+							data-delete-type="group"
+							data-delete-url="{{ path('tum_ventureinitiative_group_delete', {'groupId': group.id}) }}"
+							data-delete-info="Group #{{ group.id }}: {{ group.name }}">
+							<span class="glyphicon glyphicon-trash"></span>
+						</a>
+					{% elseif (group.status == 1) %}
+						<a href="{{ path('tum_ventureinitiative_group_stop', {'groupId': group.id}) }}" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-stop"></span></a>
+						<a href="#deleteModal" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" 
+							data-delete-type="group"
+							data-delete-url="{{ path('tum_ventureinitiative_group_delete', {'groupId': group.id}) }}"
+							data-delete-info="Group #{{ group.id }}: {{ group.name }}">
+							<span class="glyphicon glyphicon-trash"></span>
+						</a>
+					{% elseif (group.status == 2) %}
+						<a href="#deleteModal" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" 
+							data-delete-type="group"
+							data-delete-url="{{ path('tum_ventureinitiative_group_delete', {'groupId': group.id}) }}"
+							data-delete-info="Group #{{ group.id }}: {{ group.name }}">
+							<span class="glyphicon glyphicon-trash"></span>
+						</a>
+					{% endif %}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<br />
+	
+	<h3>Group Participants</h3>
+	
+	<table class="table table-hover">
+	
+		<thead>
+			
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Firstname</th>
+				<th>E-Mail</th>
+				<th>Options</th>
+			</tr>
+	
+		</thead>
+	
+		<tbody>
+			
+			{% for participant in participants %}	
+			
+			<tr>
+				<td>{{ participant.id }}</td>
+				<td>{{ participant.lastname }}</td>
+				<td>{{ participant.firstname }}</td>
+				<td>{{ participant.email }}</td>
+				<td>
+					{% if (group.status == 0) %}
+						<a href="{{ path('tum_ventureinitiative_participant_edit', {'participantId': participant.id}) }}" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+						<a href="#deleteModal" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" 
+							data-delete-type="user"
+							data-delete-url="{{ path('tum_ventureinitiative_participant_delete', {'participantId': participant.id}) }}" 
+							data-delete-info="{{ participant.firstname }} {{ participant.lastname }} ({{ participant.email }})">
+							<span class="glyphicon glyphicon-trash"></span>
+						</a>
+					{% elseif (group.status == 1) %}
+						<a href="{{ path('tum_ventureinitiative_participant_edit', {'participantId': participant.id}) }}" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+						<a href="{{ path('tum_ventureinitiative_participant_mail', {'participantId': participant.id}) }}" class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-envelope"></span>
+						</a>
+						<a href="#" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</a>
+					{% elseif (group.status == 2) %}
+						<a href="{{ path('tum_ventureinitiative_participant_edit', {'participantId': participant.id}) }}" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+						<a href="{{ path('tum_ventureinitiative_participant_mail', {'participantId': participant.id}) }}" class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-envelope"></span>
+						</a>
+					{% endif %}
+				</td>
+			</tr>
+	
+			{% endfor %}
+	
+		</tbody>
+	
+	</table>
+	
+</div>
+
+<!-- Modals -->
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="deleteModalTitle"></h4>
+			</div>
+			<div class="modal-body" id="deleteModalContent"></div>
+			<div class="modal-footer">
+				<a class="btn btn-default" data-dismiss="modal">Abort</a>
+				<a class="btn btn-danger">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
+	
+{% endblock %}
+
+{% block javascript %}
+	
+	{{ parent() }}
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			$('#deleteModal').on('show.bs.modal', function(e) {
+
+				var trigger = $(e.relatedTarget);
+				var deleteUrl = trigger.data('deleteUrl');
+				var deleteType = trigger.data('deleteType');
+				var deleteInfo = trigger.data('deleteInfo');
+
+				if(deleteUrl !== undefined) {
+		            $(this).find('.btn-danger')
+		                .attr('href', deleteUrl)
+		                .click(function() { 
+			                $this.modal('hide'); 
+			            });
+
+		            if(deleteType == 'group') {
+
+		            	$(this).find('#deleteModalTitle').html('Delete Group');
+		                $(this).find('#deleteModalContent').html('Are you sure you want to delete the following group: <br /> <br /> <b>' + deleteInfo + '</b> <br /><br /> This action cannot be undone! <br /> This also deletes all participants and their results! ');
+			            
+			        }
+		            else if(deleteType == 'user') {
+
+		            	$(this).find('#deleteModalTitle').html('Delete User');
+		                $(this).find('#deleteModalContent').html('Are you sure you want to delete the following user: <br /> <br /> <b>' + deleteInfo + '</b> <br /><br /> This action cannot be undone!');
+			            
+			        } 
+
+		        }
+				
+			});
+				
+		});
+	
+	</script>
+
+{% endblock %}
