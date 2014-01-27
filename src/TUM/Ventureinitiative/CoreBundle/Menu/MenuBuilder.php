@@ -30,9 +30,9 @@ class MenuBuilder {
 			
 // 		}
 
-		$menu->addChild('Dashboard', array('route' => 'backend_index'));
-		$menu->addChild('Group Evaluations', array('route' => 'tum_ventureinitiative_group_index'));
-		$menu->addChild('Tests', array('route' => 'frontend_index'));
+//		$menu->addChild('Dashboard', array('route' => 'backend_index'));
+		$menu->addChild('Groups', array('route' => 'tum_ventureinitiative_group_index'));
+		$menu->addChild('Tests', array('route' => 'tum_ventureinitiative_admin_test_management_overview'));
 		$menu->addChild('Settings', array('route' => 'core_backend_settings_index'));
 		
 		return $menu;

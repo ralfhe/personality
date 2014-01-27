@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Group Evaluation{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+	<h1>{{ testRecord.name }} - Step {{ currentStep }} of {{ stepCount.total }}</h1> <br />
+	
+	<div class="progress">
+		<div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: {{ currentStep/(stepCount.total) * 100 }}%;">
+			<span class="sr-only">60% Complete</span>
+		</div>
+	</div>
+	
+	<br />
+	
+	{% include stepView with {'form':form} %}
+
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+{{ parent() }}
+
+	<script>
+
+		$('table td').click(function() {
+		    $(this).find('input[type=radio]').prop('checked', true);
+		})
+		
+	</script>
+
+{% endblock %}

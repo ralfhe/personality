@@ -1,7 +1,8 @@
 parameters:
-#    tum_ventureinitiative_test.example.class: TUM\Ventureinitiative\TestBundle\Example
+    tum_ventureinitiative_test.test_manager.class: TUM\Ventureinitiative\TestBundle\Services\TestManager
 
 services:
-#    tum_ventureinitiative_test.example:
-#        class: %tum_ventureinitiative_test.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    tum_ventureinitiative_test.test_manager:
+        class: %tum_ventureinitiative_test.test_manager.class%
+        calls:
+            - [ setContainer, [@service_container] ]

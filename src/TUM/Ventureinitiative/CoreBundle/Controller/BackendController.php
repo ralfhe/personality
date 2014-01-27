@@ -8,7 +8,7 @@ class BackendController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CoreBundle:Backend:index.html.twig', array('name' => 'Core'));
+        return $this->redirect($this->generateUrl('tum_ventureinitiative_group_index'));
     }
     
 

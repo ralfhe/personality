@@ -1,5 +1,0 @@
-services:
-    tum_ventureinitiative_user_management.menu_service:
-        class: TUM\Ventureinitiative\UserManagementBundle\Services\MenuService
-        tags: 
-            - { name: tum_ventureinitiative_core.main_menu }

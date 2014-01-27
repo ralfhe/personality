@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		
+		{% block stylesheet %}
+		
+			<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+	
+			<style>
+	
+				body {
+					padding-top: 20px;
+					padding-bottom: 20px;
+					background-color: #efefef;
+					color: #444;
+				}
+	
+				.header {
+					padding: 25px;
+					text-align: center;
+					border-top: 10px solid #306088;
+				}
+	
+				@media (min-width: 768px) {
+					.container {
+						max-width: 600px;
+					}
+				}
+	
+				.inner-container {
+				    background-color: #fff;
+				    border: 1px solid #ddd;
+				    border-right: 1px solid #ddd;
+				    border-bottom: 1px solid #ddd;
+				}
+	
+				.footer {
+					padding: 10px;
+				}
+	
+			</style>
+		
+		{% endblock %}
+		
+		{% block javascript %}
+		
+			<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		
+		{% endblock %}
+		
+	</head>
+	<body>
+	
+		<div class="container">
+
+			<div class="container inner-container">
+
+				<div class="header">
+	        		<h1><span style="color: #306088;">Venture</span><span style="color: #444;">initiative</span></h1>
+	      		</div>
+
+	      		<hr />
+
+	      		<div class="content">
+	      		
+	      			{% block content %}{% endblock %}
+					
+				</div>
+
+				<hr />
+		
+				<div class="footer">
+					<center>
+						<img src="{{ img.wiwi }}" style="margin-right: 10px;" />
+						<img src="{{ img.tum }}" style="margin-left: 10px;" />
+						<br /><br />
+					</center>
+				</div>
+
+			</div>
+
+			<br />
+
+			<center>
+				<small>
+					<a href="http://www.ventureinitiative.de">Webpage</a> | <a href="https://www.facebook.com/TUMentrepreneurship">Facebook</a>
+					<br /><br />
+					TUM Entrepreneurship Research Institute<br />
+					Karlstr. 45, 80333 M&uuml;nchen, Tel: +49 89 289 26748
+				</small>
+			</center>
+
+		</div>
+			
+	</body>
+</html>

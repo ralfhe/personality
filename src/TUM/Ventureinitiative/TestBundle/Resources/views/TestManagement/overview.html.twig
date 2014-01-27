@@ -1,0 +1,159 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+
+<div class="container">
+
+	<h1>Test Management - Overview</h1>
+	
+	<hr />
+	
+	<br />
+
+	<h3>Dev Environment <a href="#table_dev" data-toggle="collapse" class="btn btn-default" style="margin-left: 20px;"><span class="glyphicon glyphicon-chevron-down"></span></a></h3>
+	
+	<div id="table_dev" class="collapse">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Version</th>
+					<th>Type</th>
+					<th>Options</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% set noTestWithThisStatus = true %}
+				{% for test in tests %}
+					{% if test.status == 0 %}
+						<tr>
+							<td>{{ test.id }}</td>
+							<td>{{ test.name }}</td>
+							<td>{{ test.version }}</td>
+							<td>{{ test.type }}</td>
+							<td>
+								<a href="{{ path('tum_ventureinitiative_admin_test_management_edit', {'testId':test.id}) }}" class="btn btn-default">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</a>
+								<a href="{{ path('tum_ventureinitiative_admin_test_management_change_status', {'testId':test.id}) }}" class="btn btn-success">
+									<span class="glyphicon glyphicon-play"></span>
+								</a>
+							</td>
+						</tr>
+					{% set noTestWithThisStatus = false %}
+					{% endif %}
+				{% endfor %}
+				
+				{% if noTestWithThisStatus %}
+					<tr>
+						<td colspan="5" align="center"><i>No tests available for this environment</i></td>
+					</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+	
+	<hr />
+	
+	<h3>Prod Environment<a href="#table_prod" data-toggle="collapse" class="btn btn-default" style="margin-left: 20px;"><span class="glyphicon glyphicon-chevron-up"></span></a></h3>
+	
+	<div id="table_prod" class="collapse in">
+		<table class="table" id="table_prod">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Version</th>
+					<th>Type</th>
+					<th># of Groups</th>
+					<th>Options</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% set noTestWithThisStatus = true %}
+				{% for test in tests %}
+					{% if test.status == 1 %}
+						<tr>
+							<td>{{ test.id }}</td>
+							<td>{{ test.name }}</td>
+							<td>{{ test.version }}</td>
+							<td>{{ test.type }}</td>
+							<td>{{ test.groups.count }}</td>
+							<td>
+								<a href="{{ path('tum_ventureinitiative_admin_test_management_change_status', {'testId':test.id}) }}" class="btn btn-danger">
+									<span class="glyphicon glyphicon-stop"></span>
+								</a>
+							</td>
+						</tr>
+					{% set noTestWithThisStatus = false %}
+					{% endif %}
+				{% endfor %}
+				
+				{% if noTestWithThisStatus %}
+					<tr>
+						<td colspan="5" align="center"><i>No tests available for this environment</i></td>
+					</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+	
+	<hr />
+	
+	<h3>Legacy Environment<a href="#table_legacy" data-toggle="collapse" class="btn btn-default" style="margin-left: 20px;"><span class="glyphicon glyphicon-chevron-down"></span></a></h3>
+	
+	<div id="table_legacy" class="collapse">
+		<table class="table" id="table_legacy">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Version</th>
+					<th>Type</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% set noTestWithThisStatus = true %}
+				{% for test in tests %}
+					{% if test.status == 2 %}
+						<tr>
+							<td>{{ test.id }}</td>
+							<td>{{ test.name }}</td>
+							<td>{{ test.version }}</td>
+							<td>{{ test.type }}</td>
+						</tr>
+					{% set noTestWithThisStatus = false %}
+					{% endif %}
+				{% endfor %}
+				
+				{% if noTestWithThisStatus %}
+					<tr>
+						<td colspan="5" align="center"><i>No tests available for this environment</i></td>
+					</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+	
+</div>
+	
+{% endblock %}
+
+{% block javascript %}
+	
+	{{ parent() }}
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			$('[data-toggle="tooltip"]').tooltip({
+				'placement':'right'
+			});
+
+		});
+	
+	</script>
+
+{% endblock %}

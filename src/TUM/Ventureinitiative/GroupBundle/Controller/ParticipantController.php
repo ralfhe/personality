@@ -134,10 +134,22 @@ class ParticipantController extends Controller {
     	
     }
     
-    public function editAction()
-    {
-    	$name = "Group";
-    	return $this->render('TUMVentureinitiativeGroupBundle:Default:index.html.twig', array('name' => $name));
+    public function editAction($participantId, Request $request) {
+    	
+    	$em = $this->getDoctrine()->getManager();
+    	$participantRepository = $em->getRepository('TUMVentureinitiativeGroupBundle:Participant');
+    	$participant = $participantRepository->findOneById($participantId);
+    	
+    	$form = $this->createForm(new ParticipantType(), $participant);
+    	$form->handleRequest($request);
+    	
+    	if($form->isValid()) {
+    		$em->flush();
+    		return $this->redirect($this->generateUrl('tum_ventureinitiative_group_settings', array('groupId' => $participant->getGroup()->getId())));
+    	}
+    	
+    	return $this->render('TUMVentureinitiativeGroupBundle:Participant:participantForm.html.twig', array('participantForm' => $form->createView(), 'groupId' => $participant->getGroup()->getId()));
+    	
     }
     
     public function deleteAction($participantId) {
@@ -157,31 +169,5 @@ class ParticipantController extends Controller {
     	return $this->redirect($this->generateUrl('tum_ventureinitiative_group_settings', array('groupId' => $groupId)));
     	
     }
-    
-    public function infoAction() {
 
-	}
-	
-	public function mailAction($participantId) {
-		 
-		$participantRepository = $this->getDoctrine()->getRepository('TUMVentureinitiativeGroupBundle:Participant');
-		$participant = $participantRepository->find($participantId);
-		 
-		$content = 'Wellcome, you have been enrolled to an group evaluation. To start it, please click on the following link: ' . 
-    				$this->generateUrl('tum_ventureinitiative_test_overview', array('test' => 'big5', 'auth_token' => $participant->getAuthToken()), true);
-    		
-    		$message = \Swift_Message::newInstance()
-	    		->setSubject('Ventureinitiative - Group Evaluation')
-	    		->setFrom('idp@ralfhecktor.de')
-	    		->setTo($participant->getEmail())
-	    		->setBody($this->renderView('TUMVentureinitiativeGroupBundle:Participant:email.html.twig', array('content' => $content)), 'text/html');
-    		 
-    		$this->get('mailer')->send($message);
-	
-	
-		return $this->redirect($this->generateUrl('tum_ventureinitiative_group_index'));
-		 
-	}
-
-    
 }

@@ -1,0 +1,28 @@
+<div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span> Please provide the following additional information <b>about yourself</b> to get your result.</b></div>
+
+<br />
+
+<div class="row">
+
+<div class="col-md-12">
+
+{{ form_start(form) }}
+
+	<div class="form-group">
+	
+		{{ form_label(form.age) }}
+		{% if form_errors(form.age) != '' %}
+			<div class="alert alert-danger"><b>Error!</b><br />{{ form_errors(form.age) }}</div>
+		{% endif %}
+		{{ form_widget(form.age, {'attr': {'class': 'form-control'}}) }}
+	
+	</div>
+	<br />
+	<button type="submit" class="btn btn-primary">Finish</button>
+	
+{{ form_end(form) }}
+
+
+</div>
+
+</div>

@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-12">
+			You can download this result as PDF file <a href="{{ path('tum_ventureinitiative_test_wizard_pdf') }}" class="btn btn-default"><span class=" glyphicon glyphicon-file"></span></a>
+			and/or persist it and get a unique URL to access it anytime <a href="" class="btn btn-default"><span class="glyphicon glyphicon-bookmark"></span></a>
+		</div>
+	</div>
+
+	{% include test.resultView with {'result':result} %}
+
+</div>
+
+{% endblock %}

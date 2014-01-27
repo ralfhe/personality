@@ -17,7 +17,8 @@ framework:
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_proxies: ~
-    session:         ~
+    session:
+        cookie_lifetime: ~
     fragments:       ~
     http_method_override: true
 
@@ -25,7 +26,9 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-
+    paths: 
+        "%kernel.root_dir%/../src/TUM/Ventureinitiative/TestBundle/Wizard/Tests": test_view
+    
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
@@ -74,3 +77,13 @@ fos_user:
     registration:
         form: 
             type: core_user_registration
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     /Applications/wkhtmltopdf.app/Contents/MacOS/wkhtmltopdf
+        options:    []
+    image:
+        enabled:    false
+        binary:     /usr/local/bin/wkhtmltoimage
+        options:    []

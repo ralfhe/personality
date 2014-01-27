@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2a5e3c55ff93999684cb3a4eaabbc6bb",
+    "hash": "fc2e6f97870833999cde9463acdc69f7",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -616,12 +616,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "eb459d55bca10b51e7d44143ca6757fd999fce62"
+                "reference": "da9a97314884275c77a741205bda9f86afe23ffd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/eb459d55bca10b51e7d44143ca6757fd999fce62",
-                "reference": "eb459d55bca10b51e7d44143ca6757fd999fce62",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/da9a97314884275c77a741205bda9f86afe23ffd",
+                "reference": "da9a97314884275c77a741205bda9f86afe23ffd",
                 "shasum": ""
             },
             "require": {
@@ -676,20 +676,20 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2013-11-25 12:39:19"
+            "time": "2014-01-22 08:58:14"
         },
         {
             "name": "jdorn/sql-formatter",
-            "version": "v1.2.16",
+            "version": "v1.2.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jdorn/sql-formatter.git",
-                "reference": "8859d664737492d313c34796731b35eca851b362"
+                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/8859d664737492d313c34796731b35eca851b362",
-                "reference": "8859d664737492d313c34796731b35eca851b362",
+                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/64990d96e0959dff8e059dfcdc1af130728d92bc",
+                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc",
                 "shasum": ""
             },
             "require": {
@@ -726,114 +726,7 @@
                 "highlight",
                 "sql"
             ],
-            "time": "2013-11-27 22:51:13"
-        },
-        {
-            "name": "jmikola/auto-login",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jmikola/AutoLogin.git",
-                "reference": "e60abda9864bcabc0475e5e669c12a47aeed62a8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jmikola/AutoLogin/zipball/e60abda9864bcabc0475e5e669c12a47aeed62a8",
-                "reference": "e60abda9864bcabc0475e5e669c12a47aeed62a8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/http-kernel": "~2.1",
-                "symfony/security": "~2.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Jmikola\\AutoLogin": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Henrik Bjornskov",
-                    "email": "henrik@bjrnskov.dk",
-                    "homepage": "http://henrik.bjrnskov.dk"
-                },
-                {
-                    "name": "Jeremy Mikola",
-                    "email": "jmikola@gmail.com",
-                    "homepage": "http://jmikola.net"
-                }
-            ],
-            "description": "Faciliates automatic login via a single token for Symfony2's Security component.",
-            "homepage": "https://github.com/jmikola/AutoLogin",
-            "keywords": [
-                "Authentication",
-                "auto-login",
-                "login",
-                "security"
-            ],
-            "time": "2013-07-17 14:56:43"
-        },
-        {
-            "name": "jmikola/auto-login-bundle",
-            "version": "v1.0.3",
-            "target-dir": "Jmikola/AutoLoginBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jmikola/JmikolaAutoLoginBundle.git",
-                "reference": "fec6c37d0e2a13928d06099f64b79bcdc6141253"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jmikola/JmikolaAutoLoginBundle/zipball/fec6c37d0e2a13928d06099f64b79bcdc6141253",
-                "reference": "fec6c37d0e2a13928d06099f64b79bcdc6141253",
-                "shasum": ""
-            },
-            "require": {
-                "jmikola/auto-login": "~1.0",
-                "php": ">=5.3.2",
-                "symfony/config": "~2.1",
-                "symfony/dependency-injection": "~2.1",
-                "symfony/http-kernel": "~2.1",
-                "symfony/security-bundle": "~2.1"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Jmikola\\AutoLoginBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeremy Mikola",
-                    "email": "jmikola@gmail.com",
-                    "homepage": "http://jmikola.net"
-                }
-            ],
-            "description": "Authenticate users in your Symfony2 app via a single query parameter (e.g. email and newsletter links).",
-            "homepage": "https://github.com/jmikola/JmikolaAutoLoginBundle",
-            "keywords": [
-                "Authentication",
-                "auto-login",
-                "login",
-                "security"
-            ],
-            "time": "2013-07-17 15:14:01"
+            "time": "2014-01-12 16:20:24"
         },
         {
             "name": "knplabs/knp-menu",
@@ -906,12 +799,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "1b07578738d3425c09cfbd153276382388994f46"
+                "reference": "838c4a0f9b0631b37d699d9a7ebd695707298678"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/1b07578738d3425c09cfbd153276382388994f46",
-                "reference": "1b07578738d3425c09cfbd153276382388994f46",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/838c4a0f9b0631b37d699d9a7ebd695707298678",
+                "reference": "838c4a0f9b0631b37d699d9a7ebd695707298678",
                 "shasum": ""
             },
             "require": {
@@ -951,7 +844,112 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2013-07-08 09:55:38"
+            "time": "2013-12-03 00:27:28"
+        },
+        {
+            "name": "knplabs/knp-snappy",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/snappy.git",
+                "reference": "1f56b336f8e158b57dcfce007234363cbb54192b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/snappy/zipball/1f56b336f8e158b57dcfce007234363cbb54192b",
+                "reference": "1f56b336f8e158b57dcfce007234363cbb54192b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "google/wkhtmltopdf-amd64": "Provide wkhtmltopdf-amd64 binary, use version `0.11.0-RC1` as dependency",
+                "google/wkhtmltopdf-i386": "Provide wkhtmltopdf-i386 binary, use version `0.11.0-RC1` as dependency",
+                "symfony/process": "Process Component of Symfony2."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Snappy": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/snappy/contributors"
+                }
+            ],
+            "description": "PHP5 library allowing thumbnail, snapshot or PDF generation from a url or a html page. Wrapper for wkhtmltopdf/wkhtmltoimage.",
+            "homepage": "http://github.com/KnpLabs/snappy",
+            "keywords": [
+                "knp",
+                "knplabs",
+                "pdf",
+                "snapshot",
+                "thumbnail",
+                "wkhtmltopdf"
+            ],
+            "time": "2013-09-06 14:16:50"
+        },
+        {
+            "name": "knplabs/knp-snappy-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/SnappyBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpSnappyBundle.git",
+                "reference": "68f48977816fd829911c789663e22a9a62535079"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpSnappyBundle/zipball/68f48977816fd829911c789663e22a9a62535079",
+                "reference": "68f48977816fd829911c789663e22a9a62535079",
+                "shasum": ""
+            },
+            "require": {
+                "knplabs/knp-snappy": "*",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.0.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\SnappyBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/KnpSnappyBundle/contributors"
+                }
+            ],
+            "description": "Easily create PDF and images in Symfony2 by converting Twig/HTML templates.",
+            "homepage": "http://github.com/KnpLabs/KnpSnappyBundle",
+            "keywords": [
+                "bundle",
+                "knp",
+                "knplabs",
+                "pdf",
+                "snappy"
+            ],
+            "time": "2014-01-02 11:20:45"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1272,16 +1270,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.0.2",
+            "version": "v5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "f3917ecef35a4e4d98b303eb9fee463bc983f379"
+                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/f3917ecef35a4e4d98b303eb9fee463bc983f379",
-                "reference": "f3917ecef35a4e4d98b303eb9fee463bc983f379",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
+                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
                 "shasum": ""
             },
             "require": {
@@ -1317,7 +1315,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2013-08-30 12:35:21"
+            "time": "2013-12-03 13:33:24"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -1544,16 +1542,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.7",
+            "version": "v2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "2829b471871c2564228fe9f0832a0f928a8ffaa1"
+                "reference": "ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/2829b471871c2564228fe9f0832a0f928a8ffaa1",
-                "reference": "2829b471871c2564228fe9f0832a0f928a8ffaa1",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74",
+                "reference": "ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74",
                 "shasum": ""
             },
             "require": {
@@ -1648,7 +1646,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-11-14 07:58:51"
+            "time": "2014-01-05 01:24:54"
         },
         {
             "name": "twig/extensions",
@@ -1699,16 +1697,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.14.2",
+            "version": "v1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64"
+                "reference": "85e4ff98000157ff753d934b9f13659a953f5666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/ca445842fcea4f844d68203ffa2d00f5e3cdea64",
-                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/85e4ff98000157ff753d934b9f13659a953f5666",
+                "reference": "85e4ff98000157ff753d934b9f13659a953f5666",
                 "shasum": ""
             },
             "require": {
@@ -1717,7 +1715,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.14-dev"
+                    "dev-master": "1.15-dev"
                 }
             },
             "autoload": {
@@ -1744,7 +1742,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-30 08:20:53"
+            "time": "2013-12-06 07:47:10"
         }
     ],
     "packages-dev": [
@@ -1756,6 +1754,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
+        "knplabs/knp-snappy-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
         "knplabs/knp-menu": 20
     },

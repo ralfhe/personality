@@ -5,7 +5,7 @@ tum_ventureinitiative_group:
 tum_ventureinitiative_test:
     resource: "@TUMVentureinitiativeTestBundle/Resources/config/routing.yml"
 
-core:
+tum_ventureinitiative_core:
     resource: "@CoreBundle/Resources/config/routing.yml"
     prefix:   /
        

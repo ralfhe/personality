@@ -12,7 +12,7 @@
 	
 	<br />
 	
-	<h3>Group Summary</h3>
+	<h3>Group</h3>
 	
 	<table  class="table">
 		<thead>
@@ -21,6 +21,7 @@
 				<th>Name</th>
 				<th>Description</th>
 				<th>Test</th>
+				<th>Assignments</th>
 				<th>Options</th>
 			</tr>
 		</thead>
@@ -29,7 +30,8 @@
 				<td>{{ group.id }}</td>
 				<td>{{ group.name }}</td>
 				<td>{{ group.description }}</td>
-				<td>{{ group.test.name }}</td>
+				<td>{{ group.test.nameAndVersion }}</td>
+				<td>{{ group.assignmentAmount }}</td>
 				<td>
 					{% if (group.status == 0) %}
 						<a href="{{ path('tum_ventureinitiative_group_edit', {'groupId': group.id}) }}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -64,7 +66,7 @@
 	
 	<br />
 	
-	<h3>Group Participants</h3>
+	<h3>Participants</h3>
 	
 	<table class="table table-hover">
 	
@@ -75,6 +77,7 @@
 				<th>Name</th>
 				<th>Firstname</th>
 				<th>E-Mail</th>
+				<th>Evaluations <span id="th_evaluations_info_tooltip"  data-toggle="tooltip" title="done/total" class="glyphicon glyphicon-info-sign"></span></th>
 				<th>Options</th>
 			</tr>
 	
@@ -89,6 +92,7 @@
 				<td>{{ participant.lastname }}</td>
 				<td>{{ participant.firstname }}</td>
 				<td>{{ participant.email }}</td>
+				<td>{{ evaluationCount[participant.id]['done'] }}/{{ evaluationCount[participant.id]['total'] }}</td>
 				<td>
 					{% if (group.status == 0) %}
 						<a href="{{ path('tum_ventureinitiative_participant_edit', {'participantId': participant.id}) }}" class="btn btn-default btn-sm">
@@ -104,11 +108,8 @@
 						<a href="{{ path('tum_ventureinitiative_participant_edit', {'participantId': participant.id}) }}" class="btn btn-default btn-sm">
 							<span class="glyphicon glyphicon-pencil"></span>
 						</a>
-						<a href="{{ path('tum_ventureinitiative_participant_mail', {'participantId': participant.id}) }}" class="btn btn-primary btn-sm">
+						<a href="{{ path('tum_ventureinitiative_group_mail_reminder', {'participantId': participant.id}) }}" class="btn btn-primary btn-sm">
 							<span class="glyphicon glyphicon-envelope"></span>
-						</a>
-						<a href="#" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-chevron-down"></span>
 						</a>
 					{% elseif (group.status == 2) %}
 						<a href="{{ path('tum_ventureinitiative_participant_edit', {'participantId': participant.id}) }}" class="btn btn-default btn-sm">
@@ -157,6 +158,8 @@
 
 		$(document).ready(function(){
 
+			$('#th_evaluations_info_tooltip').tooltip();
+			
 			$('#deleteModal').on('show.bs.modal', function(e) {
 
 				var trigger = $(e.relatedTarget);

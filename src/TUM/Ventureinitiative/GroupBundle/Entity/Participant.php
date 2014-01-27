@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  *
- * @ORM\Entity(repositoryClass="TUM\Ventureinitiative\GroupBundle\Entity\Repository\ParticipantRepository")
+ * @ORM\Entity
  * @ORM\Table(name="vi_participant")
  *
  */
@@ -21,35 +21,35 @@ class Participant {
 	 * @ORM\GeneratedValue(strategy="AUTO") 
 	 *
 	 */
-	private $id;
+	protected $id;
 
 	/**
 	 *
-	 * @ORM\Column(type="string", length=125)
+	 * @ORM\Column(type="string", length=125, nullable=true)
 	 *
 	 */
-	private $firstname;
+	protected $firstname;
 
 	/**
 	 *
-	 * @ORM\Column(type="string", length=125)
+	 * @ORM\Column(type="string", length=125, nullable=true)
 	 *
 	 */
-	private $lastname;
+	protected $lastname;
 
 	/**
 	 *
-	 * @ORM\Column(type="string", length=125)
+	 * @ORM\Column(type="string", length=125, nullable=true)
 	 *
 	 */
-	private $email;
+	protected $email;
 	
 	/**
 	 *
 	 * @ORM\Column(type="string", length=125, unique=true)
 	 *
 	 */
-	private $auth_token;
+	protected $auth_token;
 	
 	/**
 	 * 
@@ -57,8 +57,31 @@ class Participant {
      * @ORM\JoinColumn(name="group_id", referencedColumnName="id", onDelete="CASCADE")
 	 * 
 	 */
-	private $group;
+	protected $group;
 	
+	/**
+	 *
+	 * @ORM\OneToMany(targetEntity="GroupEvaluation", mappedBy="evaluating_participant")
+	 *
+	 */
+	
+	protected $evaluating;
+	
+	/**
+	 *
+	 * @ORM\OneToMany(targetEntity="GroupEvaluation", mappedBy="evaluated_participant")
+	 *
+	 */
+	
+	protected $evaluatedBy;
+	
+	/**
+	 * 
+	 * @ORM\Column(type="object", nullable=true)
+	 *
+	 */
+	
+	protected $result;
 
 
     /**
@@ -184,5 +207,102 @@ class Participant {
     public function getGroup()
     {
         return $this->group;
+    }
+
+    /**
+     * Set result
+     *
+     * @param \stdClass $result
+     * @return Participant
+     */
+    public function setResult($result)
+    {
+        $this->result = $result;
+    
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return \stdClass 
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->evaluating = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->evaluatedBy = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add evaluating
+     *
+     * @param \TUM\Ventureinitiative\GroupBundle\Entity\GroupEvaluation $evaluating
+     * @return Participant
+     */
+    public function addEvaluating(\TUM\Ventureinitiative\GroupBundle\Entity\GroupEvaluation $evaluating)
+    {
+        $this->evaluating[] = $evaluating;
+    
+        return $this;
+    }
+
+    /**
+     * Remove evaluating
+     *
+     * @param \TUM\Ventureinitiative\GroupBundle\Entity\GroupEvaluation $evaluating
+     */
+    public function removeEvaluating(\TUM\Ventureinitiative\GroupBundle\Entity\GroupEvaluation $evaluating)
+    {
+        $this->evaluating->removeElement($evaluating);
+    }
+
+    /**
+     * Get evaluating
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvaluating()
+    {
+        return $this->evaluating;
+    }
+
+    /**
+     * Add evaluatedBy
+     *
+     * @param \TUM\Ventureinitiative\GroupBundle\Entity\GroupEvaluation $evaluatedBy
+     * @return Participant
+     */
+    public function addEvaluatedBy(\TUM\Ventureinitiative\GroupBundle\Entity\GroupEvaluation $evaluatedBy)
+    {
+        $this->evaluatedBy[] = $evaluatedBy;
+    
+        return $this;
+    }
+
+    /**
+     * Remove evaluatedBy
+     *
+     * @param \TUM\Ventureinitiative\GroupBundle\Entity\GroupEvaluation $evaluatedBy
+     */
+    public function removeEvaluatedBy(\TUM\Ventureinitiative\GroupBundle\Entity\GroupEvaluation $evaluatedBy)
+    {
+        $this->evaluatedBy->removeElement($evaluatedBy);
+    }
+
+    /**
+     * Get evaluatedBy
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvaluatedBy()
+    {
+        return $this->evaluatedBy;
     }
 }

@@ -1,6 +1,8 @@
 parameters:
-#    tum_ventureinitiative_participant.token_user_provider.class: TUM\Ventureinitiative\GroupBundle\Security\TokenUserProvider
+    tum_ventureinitiative_group.mailer.class: TUM\Ventureinitiative\GroupBundle\Controller\MailController
 
 services:
-#    tum_ventureinitiative_participant.token_user_provider:
-#        class: %tum_ventureinitiative_group.example.class%
+    tum_ventureinitiative_group.mailer:
+        class: %tum_ventureinitiative_group.mailer.class%
+        calls:
+            - [ setContainer, [@service_container] ]

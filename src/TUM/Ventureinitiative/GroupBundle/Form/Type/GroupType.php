@@ -12,9 +12,10 @@ class GroupType extends AbstractType {
 
 		$builder->add('name', 'text')
 		->add('description', 'textarea')
+		->add('assignmentAmount', 'number')
 		->add('test', 'entity', array(
 			'class' => 'TUMVentureinitiativeTestBundle:Test',
-			'property' => 'name'
+			'property' => 'nameAndVersion'
 			))
 		->add('status', 'hidden', array(
 			'data' => 0

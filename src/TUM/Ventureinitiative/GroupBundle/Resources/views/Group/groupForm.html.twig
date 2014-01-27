@@ -37,6 +37,18 @@
 		
 		<div class="form-group">
 		
+			{{ form_label(groupForm.assignmentAmount) }}
+			{% if form_errors(groupForm.assignmentAmount) is not null %}
+				<div class="alert alert-danger">
+					{{ form_errors(groupForm.assignmentAmount) }}
+				</div>
+			{% endif %}
+			{{ form_widget(groupForm.assignmentAmount, {'attr': {'class': 'form-control'}}) }}
+		
+		</div>
+		
+		<div class="form-group">
+		
 			{{ form_label(groupForm.test) }}
 			{{ form_errors(groupForm.test) }}
 			{{ form_widget(groupForm.test, {'attr': {'class': 'form-control'}}) }}

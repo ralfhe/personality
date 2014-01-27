@@ -1,0 +1,21 @@
+{% extends 'TUMVentureinitiativeGroupBundle:Mail:base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+	<h4>Hello {{ participant.firstName }} {{ participant.lastName }}!</h4>
+	<br />
+	<p>You signed up to participate in a group evaluation for the following test: <b>{{ testName }}</b>. You still need to finish your group evaluation so that others 
+	as well as yourself can get results on the evaluation. Pleas participate by clicking on the button.</p>
+	<br />
+	<p>
+		<center>
+			<a href="{{ url }}" class="btn btn-lg btn-primary">Evaluation</a>
+		</center>
+	<p>
+	<br />
+	<p>Thank you.</p>
+	<p>Your TUM Entrepreneurship Research Institute Team</p>
+					
+{% endblock %}

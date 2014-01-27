@@ -9,20 +9,37 @@ use TUM\Ventureinitiative\GroupBundle\Form\Type\GroupType;
 use Symfony\Component\HttpFoundation\Request;
 use TUM\Ventureinitiative\GroupBundle\Entity\GroupEvaluation;
 use FOS\UserBundle\Util\TokenGenerator;
+use Doctrine\Common\Util\Debug;
 
 
 class GroupController extends Controller
 {
     public function indexAction(Request $request)
     {
-    	$repository = $this->getDoctrine()->getRepository('TUMVentureinitiativeGroupBundle:Group');
-    	$groups = $repository->findAll();
+    	$em = $this->getDoctrine()->getEntityManager();
+    	$qb = $em->createQueryBuilder();
+    	$qb->select('COUNT(test.id)')
+    	   ->from('TUMVentureinitiativeTestBundle:Test', 'test')
+    	   ->where($qb->expr()->eq('test.status', '?1'))
+    	   ->setParameter(1, 1);
     	
-    	if($request->getSession()->has('participantsToAdd')) {
-    		$request->getSession()->remove('participantsToAdd');
+    	if($qb->getQuery()->getSingleScalarResult() == 0) {
+    		
+    		return $this->render('TUMVentureinitiativeGroupBundle:Group:noTest.html.twig');
+    		
     	}
+    	else {
     	
-        return $this->render('TUMVentureinitiativeGroupBundle:Group:index.html.twig', array('groups' => $groups));
+	    	$repository = $this->getDoctrine()->getRepository('TUMVentureinitiativeGroupBundle:Group');
+	    	$groups = $repository->findAll();
+	    	
+	    	if($request->getSession()->has('participantsToAdd')) {
+	    		$request->getSession()->remove('participantsToAdd');
+	    	}
+	    	
+	        return $this->render('TUMVentureinitiativeGroupBundle:Group:index.html.twig', array('groups' => $groups));
+	        
+    	}
     }
     
     public function newAction(Request $request)
@@ -107,12 +124,21 @@ class GroupController extends Controller
     	$participants = $participantRepository->findBy(array('group' => $groupId));
     	$shuffledParticipants = $participants;
     	shuffle($shuffledParticipants);
-    	$rounds = ceil(count($shuffledParticipants)/2);
     	$groupRepository = $this->getDoctrine()->getRepository('TUMVentureinitiativeGroupBundle:Group');
     	$group = $groupRepository->find($groupId);
+    	$rounds = $group->getAssignmentAmount();
     	$test = $em->getPartialReference('TUM\Ventureinitiative\TestBundle\Entity\Test', array('id' => $group->getTest()->getId()));
 	
     	for($i = 0; $i < count($shuffledParticipants); $i++) {
+    		
+    		$groupEvaluation = new GroupEvaluation();
+    		 
+    		$groupEvaluation->setEvaluatingParticipant($shuffledParticipants[$i]);
+    		$groupEvaluation->setEvaluatedParticipant($shuffledParticipants[$i]);
+    		$groupEvaluation->setResult("");
+    		
+    		$em->persist($groupEvaluation);
+    		$em->flush();
     		
     		for($j = 1; $j <= $rounds; $j++) {
     			
@@ -126,16 +152,7 @@ class GroupController extends Controller
     			$em->flush();
     		}
     		
-    		$content = 'Wellcome, you have been enrolled to an group evaluation. To start it, please click on the following link: ' . 
-    				$this->generateUrl('tum_ventureinitiative_test_overview', array('test' => 'big5', 'auth_token' => $shuffledParticipants[$i]->getAuthToken()), true);
-    		
-    		$message = \Swift_Message::newInstance()
-	    		->setSubject('Ventureinitiative - Group Evaluation')
-	    		->setFrom('idp@ralfhecktor.de')
-	    		->setTo($shuffledParticipants[$i]->getEmail())
-	    		->setBody($this->render('TUMVentureinitiativeGroupBundle:Participant:email.html.twig', array('content' => $content)), 'text/html');
-    		 
-    		$this->get('mailer')->send($message);
+    		$this->get('tum_ventureinitiative_group.mailer')->startAction($shuffledParticipants[$i]->getId());
     		
     	}
     	
@@ -162,11 +179,26 @@ class GroupController extends Controller
     	
     	$repository = $this->getDoctrine()->getRepository('TUMVentureinitiativeGroupBundle:Group');
     	$group = $repository->find($groupId);
+    	$participants = $group->getParticipants();
+
+    	$evaluationCount = array();
     	
-    	$repository2 = $this->getDoctrine()->getRepository('TUMVentureinitiativeGroupBundle:Participant');
-    	$participants = $repository2->findBy(array('group' => $group->getId()));
+    	foreach($participants as $participant) {
+    		
+    		$groupEvaluations = $participant->getEvaluating();
+    		
+    		$evaluationCount[$participant->getId()]['total'] = count($groupEvaluations);
+    		$evaluationCount[$participant->getId()]['done'] = 0;
+    		
+    		foreach($groupEvaluations as $groupEvaluation) {
+    			if($groupEvaluation->getEvaluation() != null) {
+    				$evaluationCount[$participant->getId()]['done']++;
+    			}
+    		}
+    		
+    	}
     	
-    	$options = array('group' => $group, 'participants' => $participants);
+    	$options = array('group' => $group, 'participants' => $participants, 'evaluationCount' => $evaluationCount);
     	
     	return $this->render('TUMVentureinitiativeGroupBundle:Group:groupInfo.html.twig', $options);
     	

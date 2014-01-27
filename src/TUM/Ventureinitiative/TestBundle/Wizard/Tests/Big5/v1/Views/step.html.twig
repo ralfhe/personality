@@ -1,0 +1,49 @@
+{% if assignedParticipant is defined and assignedParticipant is not null %}
+	<div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span> You are currently evaluating <b>{{ assignedParticipant.firstname }} {{ assignedParticipant.lastname }}</b></div>
+	<br />
+{% endif %}
+
+<div class="row">
+
+<div class="col-md-12">
+
+{{ form_start(form) }}
+	<table class="table table-striped table-bordered">
+		<tr>
+			<th>Question</th>
+			<th>Disagree strongly</th>
+			<th>Disagree a little</th>
+			<th>Neither agree nor disagree</th>
+			<th>Agree a little</th>
+			<th>Agree strongly</th>
+		</tr>
+		
+{% for item in form %}
+	
+	{% if item.vars.block_prefixes.1 == 'choice' %}
+		<tr>
+			<td><label>{{ form_label(item) }}{{ form_errors(item) }}</label></td>
+			{%  for radio in item %}
+				<td class="text-center">{{ form_widget(radio) }}</td>
+			{% endfor %}
+		</tr>
+	{% elseif item.vars.block_prefixes.1 == 'hidden'  %}
+		{{ form_row(item) }}
+	{% else %}
+		<tr>
+			<td><label>{{ form_label(item) }}{{ form_errors(item) }}</label></td>
+			<td colspan="5" class="text-center">{{ form_widget(item) }}</td>
+		</tr>
+	{% endif %}
+
+{% endfor %}
+
+	</table>
+	
+	<button type="submit" class="btn btn-primary">Weiter</button>
+	
+{{ form_end(form) }}
+
+</div>
+
+</div>

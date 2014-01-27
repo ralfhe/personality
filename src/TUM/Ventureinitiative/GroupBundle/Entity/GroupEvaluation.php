@@ -22,7 +22,7 @@ class GroupEvaluation {
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 * 
 	 */
-	private $id;
+	protected $id;
 	
 	/**
 	 *
@@ -30,7 +30,7 @@ class GroupEvaluation {
      * @ORM\JoinColumn(name="evaluating_participant", referencedColumnName="id", onDelete="CASCADE")
 	 *
 	 */
-	private $evaluating_participant;
+	protected $evaluating_participant;
 	
 	/**
 	 *
@@ -38,14 +38,21 @@ class GroupEvaluation {
      * @ORM\JoinColumn(name="evaluated_participant", referencedColumnName="id", onDelete="CASCADE")
 	 *
 	 */
-	private $evaluated_participant;
+	protected $evaluated_participant;
+	
+	/**
+	 *
+	 * @ORM\Column(type="array", nullable=true)
+	 *
+	 */
+	protected $form_data;
 	
 	/**
 	 * 
-	 * @ORM\Column(type="array")
+	 * @ORM\Column(type="array", nullable=true)
 	 *
 	 */
-	private $result;
+	protected $evaluation;
 
 
     /**
@@ -125,5 +132,51 @@ class GroupEvaluation {
     public function getEvaluatedParticipant()
     {
         return $this->evaluated_participant;
+    }
+
+    /**
+     * Set evaluation
+     *
+     * @param array $evaluation
+     * @return GroupEvaluation
+     */
+    public function setEvaluation($evaluation)
+    {
+        $this->evaluation = $evaluation;
+    
+        return $this;
+    }
+
+    /**
+     * Get evaluation
+     *
+     * @return array 
+     */
+    public function getEvaluation()
+    {
+        return $this->evaluation;
+    }
+
+    /**
+     * Set form_data
+     *
+     * @param array $formData
+     * @return GroupEvaluation
+     */
+    public function setFormData($formData)
+    {
+        $this->form_data = $formData;
+    
+        return $this;
+    }
+
+    /**
+     * Get form_data
+     *
+     * @return array 
+     */
+    public function getFormData()
+    {
+        return $this->form_data;
     }
 }

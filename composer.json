@@ -7,10 +7,10 @@
 	],
 	"require" : {
 		"symfony/symfony" : "2.3.*",
-		"jmikola/auto-login-bundle" : "~1.0",
 		"friendsofsymfony/user-bundle" : "~2.0@dev",
 		"symfony/swiftmailer-bundle" : "2.3.*",
 		"doctrine/orm" : ">=2.2.3,<2.4-dev",
+		"knplabs/knp-snappy-bundle" : "dev-master",
 		"symfony/assetic-bundle" : "2.3.*",
 		"knplabs/knp-menu-bundle" : "dev-master",
 		"knplabs/knp-menu" : "2.0.*@dev",

@@ -64,6 +64,12 @@
           <div class="collapse navbar-collapse">
 
             {% block navigation %}
+            	
+            	{% if app.user %}
+            	
+					{{ knp_menu_render('main', {'currentClass': 'active'}) }}
+				
+				{% endif %}
             
             {% endblock %}
             

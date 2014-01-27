@@ -22,28 +22,28 @@ class Group {
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 * 
 	 */
-	private $id;
+	protected $id;
 	
 	/**
 	 *
 	 * @ORM\Column(type="string", length=125)
 	 *
 	 */
-	private $name;
+	protected $name;
 	
 	/**
 	 *
-	 * @ORM\Column(type="text")
+	 * @ORM\Column(type="text", nullable=true)
 	 *
 	 */
-	private $description;
+	protected $description;
 	
 	/**
 	 *
 	 * @ORM\Column(type="integer")
 	 *
 	 */
-	private $status;
+	protected $status;
 	
 	/**
 	 * 
@@ -51,7 +51,14 @@ class Group {
      * @ORM\JoinColumn(name="test", referencedColumnName="id")
 	 *
 	 */
-	private $test;
+	protected $test;
+	
+	/**
+	 *
+	 * @ORM\Column(type="integer")
+	 *
+	 */
+	protected $assignment_amount;
 	
 	/**
 	 * 
@@ -59,7 +66,7 @@ class Group {
 	 * 
 	 */
 	
-	private $participants;
+	protected $participants;
 	
     /**
      * Constructor
@@ -202,5 +209,28 @@ class Group {
     public function getParticipants()
     {
         return $this->participants;
+    }
+
+    /**
+     * Set assignment_amount
+     *
+     * @param integer $assignmentAmount
+     * @return Group
+     */
+    public function setAssignmentAmount($assignmentAmount)
+    {
+        $this->assignment_amount = $assignmentAmount;
+    
+        return $this;
+    }
+
+    /**
+     * Get assignment_amount
+     *
+     * @return integer 
+     */
+    public function getAssignmentAmount()
+    {
+        return $this->assignment_amount;
     }
 }

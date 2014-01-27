@@ -46,6 +46,10 @@ tum_ventureinitiative_participant_delete:
     pattern:  /participant/delete/{participantId}
     defaults: { _controller: TUMVentureinitiativeGroupBundle:Participant:delete }
     
-tum_ventureinitiative_participant_mail:
-    pattern: /participant/mail/{participantId}
-    defaults: { _controller: TUMVentureinitiativeGroupBundle:Participant:mail }
+################    
+### Mail Routes 
+################    
+
+tum_ventureinitiative_group_mail_reminder:
+    pattern: /mail/{participantId}
+    defaults: { _controller: TUMVentureinitiativeGroupBundle:Mail:reminder }

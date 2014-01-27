@@ -1,2 +1,61 @@
+{% extends '::base.html.twig' %}
 
-Hello
+{% block title %}Group Evaluation - Edit Participant{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    
+	<h1>Edit Participant</h1>
+	<hr />
+	
+	<br />
+	
+	<div class="row">
+	
+		<div class="col-md-12">
+		
+			{{ form_start(participantForm) }}
+				
+				{% if not participantForm.vars.valid %}
+				<div class="alert alert-danger">
+					{{ form_errors(participantForm) }}
+				</div>
+				{% endif %}
+					
+				<div class="form-group">
+				
+					{{ form_label(participantForm.firstname) }}
+					{{ form_errors(participantForm.firstname) }}
+					{{ form_widget(participantForm.firstname, {'attr': {'class': 'form-control'}}) }}
+				
+				</div>
+				
+				<div class="form-group">
+				
+					{{ form_label(participantForm.lastname) }}
+					{{ form_errors(participantForm.lastname) }}
+					{{ form_widget(participantForm.lastname, {'attr': {'class': 'form-control'}}) }}
+				
+				</div>
+				
+				<div class="form-group">
+				
+					{{ form_label(participantForm.email) }}
+					{{ form_errors(participantForm.email) }}
+					{{ form_widget(participantForm.email, {'attr': {'class': 'form-control'}}) }}
+				
+				</div>
+			
+			 <button type="submit" class="btn btn-primary">Edit</button>
+			 <a href="{{ path('tum_ventureinitiative_group_settings', {'groupId':groupId}) }}" class="btn btn-danger">Abort</a>
+			
+			{{ form_end(participantForm) }}
+		
+		</div>
+	
+	</div>
+
+</div>
+	
+{% endblock %}

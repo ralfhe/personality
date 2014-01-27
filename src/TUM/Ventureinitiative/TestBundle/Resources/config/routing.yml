@@ -1,8 +1,51 @@
-tum_ventureinitiative_test_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: TUMVentureinitiativeTestBundle:Default:index }
+tum_ventureinitiative_test_wizard_pdf:
+    pattern:  /test/pdf
+    defaults: { _controller: TUMVentureinitiativeTestBundle:Wizard:pdf }
 
-tum_ventureinitiative_test_overview:
-    pattern:  /test/{test}/participant/{auth_token}
+tum_ventureinitiative_test_wizard:
+    pattern:  /test/wizard/{testId}/{step}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:Wizard:wizard, step: 1 }
+
+tum_ventureinitiative_test_wizard_single_result:
+    pattern:  /test/result/{testId}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:Wizard:resultSingle }
+    
+tum_ventureinitiative_test_wizard_single_result_auth:
+    pattern:  /test/result/{testId}/{authToken}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:Wizard:resultSingle }
+
+tum_ventureinitiative_test_wizard_group_result_auth:
+    pattern:  /test/group/result/{testId}/{authToken}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:Wizard:resultGroup }
+
+tum_ventureinitiative_test_wizard_single:
+    pattern:  /test/{testId}/{step}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:Wizard:single, step: 1 }
+
+tum_ventureinitiative_test_wizard_group_auth:
+    pattern:  /test/group/{testId}/{step}/{authToken}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:Wizard:group, step: 1 }
+
+#####
+# Admin Routes
+#####
+
+tum_ventureinitiative_admin_test_management_overview:
+    pattern:  /admin/testmanagement/overview
+    defaults: { _controller: TUMVentureinitiativeTestBundle:TestManagement:overview }
+
+tum_ventureinitiative_admin_test_management_change_status:
+    pattern:  /admin/testmanagement/changestatus/{testId}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:TestManagement:changeStatus }
+
+tum_ventureinitiative_admin_test_management_edit:
+    pattern:  /admin/testmanagement/edit/{testId}
+    defaults: { _controller: TUMVentureinitiativeTestBundle:TestManagement:editTest }
+    
+tum_ventureinitiative_test_admin:
+    pattern:  /admin/test
     defaults: { _controller: TUMVentureinitiativeTestBundle:Default:test }
     
+tum_ventureinitiative_test_manager_test:
+    pattern:  /admin/test/manager
+    defaults: { _controller: TUMVentureinitiativeTestBundle:TestManagement:test }

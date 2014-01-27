@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+
+<div class="container">
+
+	<h1>Test Management - Edit</h1>
+	
+	<hr />
+	
+	<br />
+
+	{{ form_start(testForm) }}
+		
+		{% if not testForm.vars.valid %}
+			<div class="alert alert-danger">
+				{{ form_errors(testForm) }}
+			</div>
+		{% endif %}
+		
+		<div class="form-group">
+		
+			{{ form_label(testForm.name) }}
+			{{ form_errors(testForm.name) }}
+			{{ form_widget(testForm.name, {'attr': {'class': 'form-control'}}) }}
+		
+		</div>
+		
+		<div class="form-group">
+		
+			{{ form_label(testForm.description) }}
+			{{ form_errors(testForm.description) }}
+			{{ form_widget(testForm.description, {'attr': {'class': 'form-control'}}) }}
+		
+		</div>
+	
+		{{ form_widget(testForm.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+		<a href="{{ path('tum_ventureinitiative_admin_test_management_overview') }}" class="btn btn-danger">Abort</a>
+
+
+	{{ form_end(testForm) }}
+	
+</div>
+	
+{% endblock %}

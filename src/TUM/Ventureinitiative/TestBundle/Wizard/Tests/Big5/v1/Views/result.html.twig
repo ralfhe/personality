@@ -1,0 +1,104 @@
+
+	<div class="page-header"><h1>Results for Big 5</h1></div>
+
+	<b>Extraversion</b> – (outgoing/energetic vs. solitary/reserved). <br />
+	Energy, positive emotions, surgency, assertiveness, sociability and the tendency to seek stimulation in the company of others, and talkativeness.
+	<br />
+	<br />
+	
+	<div class="row">
+		<div class="col-md-3">
+			<b>Self evaluation:</b> <div class="btn btn-sm btn-danger">{{ result.evaluation.self.extraversion }}</div><br />
+			<br />
+			<b>Average for your age:</b> <div class="btn btn-sm btn-warning">{{ result.referenceEvaluation.E }}</div><br />
+		</div>
+	
+		<div class="col-md-9">
+			{{ result.charts.extraversion | raw }}
+		</div>
+	</div>
+	
+	<hr />
+	
+	<b>Agreeableness</b> – (friendly/compassionate vs. cold/unkind).<br />
+	A tendency to be compassionate and cooperative rather than suspicious and antagonistic towards others.<br />
+	<br />
+	
+	<div class="row">
+	
+		<div class="col-md-3">
+			<b>Self evaluation:</b> <div class="btn btn-sm btn-danger">{{ result.evaluation.self.agreeableness }}</div><br />
+			<br />
+			<b>Average for your age:</b> <div class="btn btn-sm btn-warning">{{ result.referenceEvaluation.A }}</div><br />
+		</div>
+	
+		<div class="col-md-9">
+			{{ result.charts.agreeableness | raw }}
+		</div>
+	
+	</div>
+	
+	<hr />
+	
+	<b>Conscientiousness</b> – (efficient/organized vs. easy-going/careless). <br />
+	A tendency to show self-discipline, act dutifully, and aim for achievement; planned rather than spontaneous behavior; organized, and dependable.
+	<br />
+	<div class="row">
+	
+		<div class="col-md-3">
+			<b>Self evaluation:</b> <div class="btn btn-sm btn-danger">{{ result.evaluation.self.conscientiousness }}</div><br />
+			<br />
+			<b>Average for your age:</b> <div class="btn btn-sm btn-warning">{{ result.referenceEvaluation.C }}</div><br />
+		</div>
+	
+		<div class="col-md-9">
+			{{ result.charts.conscientiousness | raw }}
+		</div>
+	</div>
+	
+	<hr />
+	
+	<b>Neuroticism</b> – (sensitive/nervous vs. secure/confident). 
+	The tendency to experience unpleasant emotions easily, such as anger, anxiety, depression, or vulnerability. 
+	Neuroticism also refers to the degree of emotional stability and impulse control, and is sometimes referred by its low pole – "emotional stability".<br />
+	<br />
+	<div class="row">
+	
+		<div class="col-md-3">
+			<b>Self evaluation:</b> <div class="btn btn-sm btn-danger">{{ result.evaluation.self.neuroticism }}</div><br />
+			<br />
+			<b>Average for your age:</b> <div class="btn btn-sm btn-warning">{{ result.referenceEvaluation.N }}</div><br />
+		</div>
+	
+		<div class="col-md-9">
+			{{ result.charts.neuroticism | raw }}
+		</div>
+	</div>
+	
+	<hr />
+	
+	<b>Openness to experience</b> – (inventive/curious vs. consistent/cautious). <br />
+	Appreciation for art, emotion, adventure, unusual ideas, curiosity, and variety of experience. 
+	Openness reflects the degree of intellectual curiosity, creativity and a preference for novelty and variety. 
+	Some disagreement remains about how to interpret the openness factor, which is sometimes called "intellect" rather than openness to experience.<br />
+	<br />
+	<div class="row">
+	
+		<div class="col-md-3">
+			<b>Self evaluation:</b> <div class="btn btn-sm btn-danger">{{ result.evaluation.self.openness }}</div><br />
+			<br />
+			<b>Average for your age:</b> <div class="btn btn-sm btn-warning">{{ result.referenceEvaluation.O }}</div><br />
+		</div>
+		
+		<div class="col-md-9">
+			{{ result.charts.openness | raw }}
+		</div>
+	</div>
+	
+	<hr />
+	
+	<small>Sources:<br />
+John, O. P., Naumann, L. P., & Soto, C. J. (2008). Paradigm Shift to the Integrative Big-Five Trait Taxonomy: History, Measurement, and Conceptual Issues. In O. P. John, R. W. Robins, & L. A. Pervin (Eds.), Handbook of personality: Theory and research (pp. 114-158). New York, NY: Guilford Press.
+John, O. P., Donahue, E. M., & Kentle, R. L. (1991). The Big Five Inventory--Versions 4a and 54. Berkeley, CA: University of California,Berkeley, Institute of Personality and Social Research.
+Benet-Martinez, V., & John, O. P. (1998). Los Cinco Grandes across cultures and ethnic groups: Multitrait multimethod analyses of the Big Five in Spanish and English. Journal of Personality and Social Psychology, 75, 729-750.</small>
+	
